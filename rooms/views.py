@@ -9,8 +9,8 @@ class RoomsViewset(viewsets.ModelViewSet):
     serializer_class = RoomSerializer
     queryset = Room.objects.all()
 
-@api_view(['GET', 'POST'])
-def create_room(request):
+@api_view(['GET'])
+def ApiOverview(request):
     if request.method == 'POST':
         return Response({"message": "data posted"})
     return Response({"message": "data get"})
