@@ -38,6 +38,6 @@ def view_rooms(request):
         rooms = Room.objects.all()
     if rooms:
         data = RoomSerializer(rooms)
-        return Resposne(data)
+        return Response(data)
     else:
         return Response(status=status.HTTP_404_NOT_FOUND)
