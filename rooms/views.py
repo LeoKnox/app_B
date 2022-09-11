@@ -11,6 +11,10 @@ class RoomsViewset(viewsets.ModelViewSet):
 
 @api_view(['GET'])
 def ApiOverview(request):
-    if request.method == 'POST':
-        return Response({"message": "data posted"})
-    return Response({"message": "data get"})
+    api_urls = {
+        'all_items': '/',
+        'Add': '/create',
+        'Update': '/update/pk',
+        'Delete': '/item/pk/delete'
+    }
+    return Response(api_urls)
