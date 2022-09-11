@@ -26,7 +26,7 @@ def add_room(request):
         raise serializers.ValidationError('Duplicate data')
     if room.is_valid():
         room.save()
-        return Response(room.data)
+        return Response(rooms.data)
     else:
         return Response(status = status.HTTP_404_NOT_FOUND)
 
@@ -38,6 +38,6 @@ def view_rooms(request):
         rooms = Room.objects.all()
     if rooms:
         data = RoomSerializer(rooms, many=True)
-        return Response(data)
+        return Response(list(data))
     else:
         return Response(status=status.HTTP_404_NOT_FOUND)
